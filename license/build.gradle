@@ -9,7 +9,7 @@ android {
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
         versionCode 1
-        versionName "1.0"
+        versionName rootProject.ext.version
     }
 
     buildTypes {
@@ -22,11 +22,13 @@ android {
 
 publishing {
     publications {
-        release(MavenPublication) {
-            groupId = 'com.github.donnnno.android-helpers:license'
-            artifactId = 'android-helpers'
-            version = rootProject.ext.version
+        mavenJava(MavenPublication) {
+            groupId = 'com.github.donnnno'
+            artifactId = 'android-helpers:license'
         }
+    }
+    repositories {
+        mavenLocal()
     }
 }
 

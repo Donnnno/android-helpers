@@ -3,13 +3,13 @@ apply plugin: 'com.android.library'
 group = 'com.github.donnnno'
 
 android {
-    compileSdk = rootProject.ext.CompileSdk
+    compileSdk rootProject.ext.CompileSdk
     namespace rootProject.ext.Namespace
     defaultConfig {
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
         versionCode 1
-        versionName "1.0"
+        versionName rootProject.ext.version
     }
 
     buildTypes {
@@ -20,13 +20,16 @@ android {
     }
 }
 
+
 publishing {
     publications {
-        release(MavenPublication) {
-            groupId = 'com.github.donnnno.android-helpers:core'
-            artifactId = 'android-helpers'
-            version = rootProject.ext.version
+        mavenJava(MavenPublication) {
+            groupId = 'com.github.donnnno'
+            artifactId = 'android-helpers:core'
         }
+    }
+    repositories {
+        mavenLocal()
     }
 }
 

@@ -15,25 +15,25 @@ allprojects {
 Add the dependency
 ```Gradle
 dependencies {
-    implementation 'com.github.danimahardhika.android-helpers:core:$versionNumber'
-    implementation 'com.github.danimahardhika.android-helpers:animation:$versionNumber'
-    implementation 'com.github.danimahardhika.android-helpers:license:$versionNumber'
-    implementation 'com.github.danimahardhika.android-helpers:permission:$versionNumber'
+    implementation 'com.github.donnnno.android-helpers:core:$versionNumber'
+    implementation 'com.github.donnnno.android-helpers:animation:$versionNumber'
+    implementation 'com.github.donnnno.android-helpers:license:$versionNumber'
+    implementation 'com.github.donnnno.android-helpers:permission:$versionNumber'
 }
 ```
 Or use a snapshot
 ```Gradle
 dependencies {
-    implementation('com.github.danimahardhika.android-helpers:core:-SNAPSHOT') {
+    implementation('com.github.donnnno.android-helpers:core:-SNAPSHOT') {
         changing = true
     }
-    implementation('com.github.danimahardhika.android-helpers:animation:-SNAPSHOT') {
+    implementation('com.github.donnnno.android-helpers:animation:-SNAPSHOT') {
         changing = true
     }
-    implementation('com.github.danimahardhika.android-helpers:license:-SNAPSHOT') {
+    implementation('com.github.donnnno.android-helpers:license:-SNAPSHOT') {
         changing = true
     }
-    implementation('com.github.danimahardhika.android-helpers:permission:-SNAPSHOT') {
+    implementation('com.github.donnnno.android-helpers:permission:-SNAPSHOT') {
         changing = true
     }
 }

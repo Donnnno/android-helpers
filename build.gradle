@@ -30,16 +30,7 @@ allprojects {
         TargetSdk = 35
         CompileSdk = 35
         Namespace = 'com.github.donnnno'
-    }
-}
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.donnnno.android-helpers'
-            artifactId = 'android-helpers'
-            version = '0.1.1'
-        }
+        version = '0.1.1'
     }
 }
 

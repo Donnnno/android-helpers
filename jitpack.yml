@@ -1,4 +1,4 @@
 jdk: openjdk17
 install:
   - chmod +x gradlew
-  - ./gradlew build publishToMavenLocal
+  - ./gradlew build :animation:publishToMavenLocal :core:publishToMavenLocal :license:publishToMavenLocal :permission:publishToMavenLocal

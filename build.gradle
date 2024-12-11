@@ -33,6 +33,17 @@ allprojects {
     }
 }
 
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.github.donnnno.android-helpers'
+            artifactId = 'android-helpers'
+            version = '0.1.1'
+        }
+    }
+}
+
+
 tasks.register('clean', Delete) {
     group = 'build'
     delete project.layout.buildDirectory.asFile

@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-group = 'com.github.Donnnno'
+group = 'com.github.donnnno'
 
 android {
-    namespace 'com.Donnnno.android.helpers.core'
+    namespace 'com.donnnno.android.helpers.core'
     compileSdkVersion rootProject.ext.CompileSdk
     buildToolsVersion rootProject.ext.BuildTools
 

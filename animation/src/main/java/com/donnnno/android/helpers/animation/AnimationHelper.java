@@ -291,9 +291,9 @@ public class AnimationHelper {
             context = ((ContextThemeWrapper) animator.view.getContext()).getBaseContext();
         }
 
-        Animation animation = AnimationUtils.loadAnimation(context, R.anim.android_helpers_animation_slide_down_in);
+        Animation animation = AnimationUtils.loadAnimation(context, com.donnnno.android.helpers.animation.R.anim.android_helpers_animation_slide_down_in);
         if (animator.type == Type.SLIDE_DOWN_OUT) {
-            animation = AnimationUtils.loadAnimation(context, R.anim.android_helpers_animation_slide_down_out);
+            animation = AnimationUtils.loadAnimation(context, com.donnnno.android.helpers.animation.R.anim.android_helpers_animation_slide_down_out);
         }
 
         animation.setInterpolator(animator.interpolator);
@@ -338,9 +338,9 @@ public class AnimationHelper {
             context = ((ContextThemeWrapper) animator.view.getContext()).getBaseContext();
         }
 
-        Animation animation = AnimationUtils.loadAnimation(context, R.anim.android_helpers_animation_slide_up_in);
+        Animation animation = AnimationUtils.loadAnimation(context, com.donnnno.android.helpers.animation.R.anim.android_helpers_animation_slide_up_in);
         if (animator.type == Type.SLIDE_UP_OUT) {
-            animation = AnimationUtils.loadAnimation(context, R.anim.android_helpers_animation_slide_up_out);
+            animation = AnimationUtils.loadAnimation(context, com.donnnno.android.helpers.animation.R.anim.android_helpers_animation_slide_up_out);
         }
 
         animation.setInterpolator(animator.interpolator);

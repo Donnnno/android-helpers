@@ -1,9 +1,10 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
 
 group = 'com.github.danimahardhika'
 
 android {
+    namespace 'com.donnnno.android.helpers.permission'
     compileSdkVersion rootProject.ext.CompileSdk
     buildToolsVersion rootProject.ext.BuildTools
 
@@ -20,9 +21,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    publishing {
+        singleVariant("release")
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:$rootProject.ext.SupportLibrary"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = group
+                artifactId = 'permission'
+                version = '1.0'
+            }
+        }
+    }
 }

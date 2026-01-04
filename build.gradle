@@ -2,35 +2,32 @@
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.android.tools.build:gradle:8.13.2'
     }
 }
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
-        maven { url 'https://maven.google.com' }
+        maven { url 'https://jitpack.io' }
     }
 
     //NOTE: This is important
     rootProject.ext {
-        BuildTools = "27"
-        MinSdk = 14
-        TargetSdk = 27
-        CompileSdk = 27
-        SupportLibrary = "27.0.1"
+        BuildTools = "34.0.0"
+        MinSdk = 21
+        TargetSdk = 34
+        CompileSdk = 34
+        SupportLibrary = "28.0.0"
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks.register('clean', Delete) {
+    delete rootProject.layout.buildDirectory
 }

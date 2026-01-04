@@ -44,6 +44,9 @@ import androidx.core.view.WindowInsetsControllerCompat;
 
 public class ColorHelper {
 
+    /**
+     * @param color can be ColorInt or ColorRes
+     */
     @ColorInt
     public static int get(@NonNull Context context, int color) {
         try {
@@ -53,6 +56,13 @@ public class ColorHelper {
         }
     }
 
+    /**
+     * Enables edge-to-edge display for the activity.
+     * System bars will be transparent and the layout will expand behind them.
+     * 
+     * @param activity The activity to apply edge-to-edge to.
+     * @param isLight True if the background is light (will show dark icons), false otherwise.
+     */
     public static void setEdgeToEdge(@NonNull Activity activity, boolean isLight) {
         Window window = activity.getWindow();
         WindowCompat.setDecorFitsSystemWindows(window, false);
@@ -68,6 +78,12 @@ public class ColorHelper {
         setLightSystemBars(activity, isLight);
     }
 
+    /**
+     * Set the appearance of system bars (status and navigation).
+     * 
+     * @param activity The activity.
+     * @param isLight True for dark icons (light background), false for white icons (dark background).
+     */
     public static void setLightSystemBars(@NonNull Activity activity, boolean isLight) {
         Window window = activity.getWindow();
         WindowInsetsControllerCompat controller = WindowCompat.getInsetsController(window, window.getDecorView());
@@ -77,6 +93,12 @@ public class ColorHelper {
         }
     }
 
+    /**
+     * Automatically applies padding to a view so it doesn't overlap with system bars.
+     * Useful when setEdgeToEdge is enabled.
+     * 
+     * @param view The view to apply padding to.
+     */
     public static void applySystemBarsPadding(@NonNull View view) {
         ViewCompat.setOnApplyWindowInsetsListener(view, new OnApplyWindowInsetsListener() {
             @NonNull
@@ -182,7 +204,7 @@ public class ColorHelper {
             Log.e("ColorHelper", "setupStatusBarIconColor() context is null");
             return;
         }
-        int color = getAttributeColor(context, R.attr.colorPrimaryDark);
+        int color = getAttributeColor(context, androidx.appcompat.R.attr.colorPrimaryDark);
         setupStatusBarIconColor(context, isLightColor(color));
     }
 

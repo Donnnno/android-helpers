@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-group = 'com.github.danimahardhika'
+group = 'com.github.Donnnno'
 
 android {
-    namespace 'com.donnnno.android.helpers.license'
+    namespace 'com.Donnnno.android.helpers.license'
     compileSdkVersion rootProject.ext.CompileSdk
     buildToolsVersion rootProject.ext.BuildTools
 
@@ -22,6 +22,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
     publishing {
         singleVariant("release")
     }
@@ -30,17 +35,18 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation group: 'cz.msebera.android' , name: 'httpclient', version: '4.4.1.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = group
+            artifactId = 'license'
+            version = '1.0'
+
+            afterEvaluate {
                 from components.release
-                groupId = group
-                artifactId = 'license'
-                version = '1.0'
             }
         }
     }

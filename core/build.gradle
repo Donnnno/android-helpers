@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-group = 'com.github.danimahardhika'
+group = 'com.github.Donnnno'
 
 android {
-    namespace 'com.donnnno.android.helpers.core'
+    namespace 'com.Donnnno.android.helpers.core'
     compileSdkVersion rootProject.ext.CompileSdk
     buildToolsVersion rootProject.ext.BuildTools
 
@@ -22,6 +22,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
     publishing {
         singleVariant("release")
     }
@@ -34,14 +39,15 @@ dependencies {
     implementation 'com.google.android.material:material:1.13.0'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = group
+            artifactId = 'core'
+            version = '1.0'
+
+            afterEvaluate {
                 from components.release
-                groupId = group
-                artifactId = 'core'
-                version = '1.0'
             }
         }
     }

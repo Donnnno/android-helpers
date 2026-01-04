@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
-group = 'com.github.danimahardhika'
+group = 'com.github.Donnnno'
 
 android {
-    namespace 'com.donnnno.android.helpers.permission'
+    namespace 'com.Donnnno.android.helpers.permission'
     compileSdkVersion rootProject.ext.CompileSdk
     buildToolsVersion rootProject.ext.BuildTools
 
@@ -22,6 +22,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
     publishing {
         singleVariant("release")
     }
@@ -29,17 +34,18 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = group
+            artifactId = 'permission'
+            version = '1.0'
+
+            afterEvaluate {
                 from components.release
-                groupId = group
-                artifactId = 'permission'
-                version = '1.0'
             }
         }
     }
